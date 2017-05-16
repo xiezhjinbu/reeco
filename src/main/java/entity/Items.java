@@ -137,4 +137,16 @@ public class Items {
     public String getDetail() {
         return detail;
     }
+
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", pic='" + pic + '\'' +
+                ", createtime=" + createtime +
+                ", detail='" + detail + '\'' +
+                '}';
+    }
 }

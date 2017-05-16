@@ -132,7 +132,25 @@
             <artifactId>log4j</artifactId>
             <version>${log4j-version}</version>
         </dependency>
-
+        <!-- 添加servlet3.0核心包 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+            <version>2.2</version>
+        </dependency>
+        <!-- jstl -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>ssm-simple</finalName>
