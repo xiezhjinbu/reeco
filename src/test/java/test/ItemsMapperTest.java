@@ -1,5 +1,7 @@
 package test;
 
+import common.ContactInformation;
+import common.GlobalData;
 import dao.ItemsMapper;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -19,4 +21,9 @@ public class ItemsMapperTest {
         System.out.println(itemsMapper.selectByPrimaryKey(1));
     }
 
+    @Test
+    public  void testGlobalData(){
+        ContactInformation ci=GlobalData.getContactInformation();
+        System.out.println(ci);
+    }
 }
