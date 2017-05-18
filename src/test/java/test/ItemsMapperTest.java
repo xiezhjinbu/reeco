@@ -7,8 +7,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by Administrator on 2017/5/15.
  */
@@ -18,7 +16,9 @@ public class ItemsMapperTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext(new String("applicationContext.xml"));
         //System.out.println(ac.toString());
         ItemsMapper itemsMapper=ac.getBean("itemsMapper",ItemsMapper.class);
-        System.out.println(itemsMapper.selectByPrimaryKey(1));
+        System.out.println(itemsMapper.toString());
+
+
     }
 
     @Test
