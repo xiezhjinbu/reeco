@@ -7,6 +7,7 @@ import dao.ItemsMapper;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.CompanyInfoService;
 
 /**
  * Created by Administrator on 2017/5/15.
@@ -18,9 +19,14 @@ public class ItemsMapperTest {
         //System.out.println(ac.toString());
         //ItemsMapper itemsMapper=ac.getBean("itemsMapper",ItemsMapper.class);
         //System.out.println(itemsMapper.toString());
-        CompanyInfoMapper companyInfoMapper=ac.getBean("companyInfoMapper",CompanyInfoMapper.class);
-        System.out.println(companyInfoMapper.selectCompanyInfo());
+       // CompanyInfoMapper companyInfoMapper=ac.getBean("companyInfoMapper",CompanyInfoMapper.class);
+        //System.out.println(companyInfoMapper.selectCompanyInfo());
 
+       // ItemsMapper itemsMapper=ac.getBean("itemsMapper",ItemsMapper.class);
+       // System.out.println(itemsMapper.selectByPrimaryKey("9efc54b8-3c8d-11e7-9988-08edb9d95ef0"));
+
+        CompanyInfoService companyInfoService=ac.getBean("companyInfoService",CompanyInfoService.class);
+        System.out.println(companyInfoService.getCompanyInfo());
     }
 
     @Test
