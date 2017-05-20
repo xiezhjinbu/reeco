@@ -1,32 +1,22 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2017/5/19
-  Time: 10:25
+  Date: 2017/5/20
+  Time: 19:57
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-
-    System.out.println(basePath);
-    System.out.println(path);
-%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>首页</title>
+    <title>关于我们</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="js/nav.js"></script>
-
 </head>
 
 <body>
@@ -72,20 +62,25 @@
         </ul>
     </div>
 </div>
-<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>-->
-
 <div class="slide banner" data-slide='{"action":"click","fn":"banner_ext","time":"8000"}'>
     <!--<div class="ban_c album"><a href="#"><img src="images/20140225171729652.jpg" /></a></div>
     <div class="ban_c album"><a href="#"><img src="images/20140113173751727.jpg" /></a></div>
     <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>
   <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>-->
 </div>
-<div class="wrap bann_ext">
-    <ul class="l frontCover"></ul>
+
+<div class="wz"><a href="#">Home</a> > About Us > Company Profile</div>
+<div class="a1">
+    <div class="a1_t">
+        ${companyInfo.information }
+    </div>
+
+    <div class="a1_f">
+        ${companyInfo.information }
+        <img src="images/about1.jpg" />
+    </div>
 </div>
-<script src="js/lanrenzhijia.js"></script>
-<!-- 代码部分end -->
-</div>
+
 <div class="fnav">
     <div class="fnav_n">
         <div class="fnav_nll">
@@ -115,11 +110,11 @@
         </div>
     </div>
 </div>
-<div class="f">
-    <div class="foot">
-        <div class="fl">Copyright &copy; 2017.Company name All rights reserved.</div>
-        <div class="fr">Powered by Reanod | Sitemap</div>
+    <div class="f">
+        <div class="foot">
+            <div class="fl">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
+            <div class="fr">Powered by Reanod | Sitemap</div>
+        </div>
     </div>
-</div>
 </body>
 </html>

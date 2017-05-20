@@ -1,34 +1,22 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2017/5/19
-  Time: 10:25
+  Date: 2017/5/20
+  Time: 22:25
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-
-    System.out.println(basePath);
-    System.out.println(path);
-%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>首页</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <title>产品展示</title>
+
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script src="js/nav.js"></script>
 
 </head>
-
 <body>
 <!--<div class="t">
   <div class="t_n">
@@ -43,11 +31,11 @@
     <div class="logo"><img src="images/logo.jpg" /></div>
     <div class="search">
         <link href="css/index.css" rel="stylesheet" type="text/css" />
-        <span class="contactUs glyphicon glyphicon-phone-alt"> ${companyInfo.telCo }</span>
+        <!--<span class="contactUs glyphicon glyphicon-phone-alt"> ${companyInfo.telCo }</span>
         <span class="contactUs glyphicon glyphicon-earphone"> ${companyInfo.phone }</span>
         <span class="contactUs glyphicon glyphicon-envelope"> ${companyInfo.eMail }</span>
 
-        <!--
+
             作者：xiezhjinbu@hotmail.com
             时间：2017-05-09
             描述：
@@ -72,20 +60,28 @@
         </ul>
     </div>
 </div>
-<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>-->
-
 <div class="slide banner" data-slide='{"action":"click","fn":"banner_ext","time":"8000"}'>
     <!--<div class="ban_c album"><a href="#"><img src="images/20140225171729652.jpg" /></a></div>
     <div class="ban_c album"><a href="#"><img src="images/20140113173751727.jpg" /></a></div>
     <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>
   <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>-->
 </div>
-<div class="wrap bann_ext">
-    <ul class="l frontCover"></ul>
+
+<div class="wz"><a href="#">Home</a> > Product > ${className }</div>
+<div class="c1">
+    <ul>
+        <c:forEach items="${items }" var="e">
+            <li><img src="images/class${e.classType}.jpg"/><div class="txtMoveOn" id="${e.id}"><a href="product.do?id=${e.id}"></a><h3>${e.itemName }</h3><p>${e.gModel }</p></div></li>
+        </c:forEach>
+    </ul>
+    <!--<div class="page">
+        <a href="#" class="color4f"  >Previous</a><u class="color03">1</u> <a href="#" class="color4f">2</a><a href="#"  class="color4f" >Next</a>
+    </div>-->
 </div>
-<script src="js/lanrenzhijia.js"></script>
-<!-- 代码部分end -->
-</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/sbhg2.js"></script>
+<script src="js/txtMoveOnClick.js"></script>
+
 <div class="fnav">
     <div class="fnav_n">
         <div class="fnav_nll">
@@ -99,10 +95,10 @@
         </div>
         <div class="fnav_nll">
             <p>NAVIGATION</p>
-            <a href="about.jsp">About us</a>
-            <a href="customer.jsp">Products</a>
+            <a href="about1.html">About us</a>
+            <a href="customer.html">Products</a>
             <c:forEach items="${lists }" var="e">
-                <a href="someCustomer.jsp?classType=${e.classType }">${e.className }</a>
+                <a href="customer.html?classType=${e.classType }">${e.className }</a>
             </c:forEach>
 
         </div>

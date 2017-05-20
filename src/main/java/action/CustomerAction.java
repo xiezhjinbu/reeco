@@ -8,13 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.CompanyInfoService;
 import service.ItemTypeService;
+
 import java.util.List;
+
 /**
- * Created by Administrator on 2017/5/19.
+ * Created by Administrator on 2017/5/20.
  */
 @Controller
 @RequestMapping("/")
-public class IndexAction {
+public class CustomerAction {
 
     private CompanyInfoService companyInfoService;
 
@@ -30,15 +32,15 @@ public class IndexAction {
         this.itemTypeService = itemTypeService;
     }
 
-    @RequestMapping("/index.do")
-    public String showIndex(Model model){
+
+    @RequestMapping("/customer.do")
+    public String showItems(Model model){
 
         CompanyInfo companyInfo=companyInfoService.getCompanyInfo();
         List<ItemType> lists=itemTypeService.getAllItemType();
         model.addAttribute("companyInfo",companyInfo);
         model.addAttribute("lists",lists);
         //System.out.println(companyInfo.toString());
-        return "index";
+        return "customer";
     }
-
 }

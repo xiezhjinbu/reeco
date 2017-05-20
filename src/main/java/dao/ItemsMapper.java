@@ -3,6 +3,8 @@ package dao;
 import annotation.MyBatisRepository;
 import entity.Items;
 
+import java.util.List;
+
 @MyBatisRepository
 public interface ItemsMapper {
     /**
@@ -52,4 +54,7 @@ public interface ItemsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Items record);
+
+    List<Items> selectByClassType(Integer classType);
+
 }
