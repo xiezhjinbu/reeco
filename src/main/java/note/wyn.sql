@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : pis
-Source Server Version : 50710
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : wyn
 
 Target Server Type    : MYSQL
-Target Server Version : 50710
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-05-18 17:26:22
+Date: 2017-05-21 16:44:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,6 +55,30 @@ CREATE TABLE `items` (
 -- ----------------------------
 -- Records of items
 -- ----------------------------
+INSERT INTO `items` VALUES ('9efc54b8-3c8d-11e7-9988-08edb9d95ef0', '玻璃杯', 'aaa', 'pp', '玻璃杯', '1', 'aaa', '23');
+INSERT INTO `items` VALUES ('9efdcd10-3c8d-11e7-9988-08edb9d95ef0', '保温杯', 'bbb', 'pp', '保温杯', '2', 'bbb', '24');
+INSERT INTO `items` VALUES ('9eff9f1b-3c8d-11e7-9988-08edb9d95ef0', '玻璃杯', 'ccc', 'pp', '玻璃杯', '1', 'ccc', '21');
+INSERT INTO `items` VALUES ('9f02ab4f-3c8d-11e7-9988-08edb9d95ef0', '保温杯', 'ddd', 'pp', '保温杯', '2', 'ddd', '21.9');
+INSERT INTO `items` VALUES ('9f04ebaf-3c8d-11e7-9988-08edb9d95ef0', '太空杯', 'eee', 'pp', '太空杯', '3', 'eee', '223');
+INSERT INTO `items` VALUES ('9f0972a2-3c8d-11e7-9988-08edb9d95ef0', '太空杯', 'hhh', 'pp', '太空杯', '3', 'hhh', '28');
+INSERT INTO `items` VALUES ('9f0bddd2-3c8d-11e7-9988-08edb9d95ef0', '玻璃杯', 'iii', 'pp', '玻璃杯', '1', 'iii', '30');
+
+-- ----------------------------
+-- Table structure for item_type
+-- ----------------------------
+DROP TABLE IF EXISTS `item_type`;
+CREATE TABLE `item_type` (
+  `CLASS_NAME` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CLASS_TYPE` int(100) NOT NULL,
+  `CLASS_NOTE` varchar(255) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of item_type
+-- ----------------------------
+INSERT INTO `item_type` VALUES ('玻璃杯', '1', 'ADFSAF');
+INSERT INTO `item_type` VALUES ('保温杯', '2', 'SDFDF');
+INSERT INTO `item_type` VALUES ('太空杯', '3', 'sdfafasdfasdfa');
 
 -- ----------------------------
 -- Table structure for picdata
@@ -64,9 +88,13 @@ CREATE TABLE `picdata` (
   `ID` varchar(36) COLLATE utf8_bin NOT NULL,
   `PIC_NAME` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `PIC_PATH` varchar(36) COLLATE utf8_bin DEFAULT NULL,
+  `PRODUCT_ID` varchar(36) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='图片库';
 
 -- ----------------------------
 -- Records of picdata
 -- ----------------------------
+INSERT INTO `picdata` VALUES ('73bf4adb-3ded-11e7-9ba7-08edb9d95ef0', '1.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('73c156e4-3ded-11e7-9ba7-08edb9d95ef0', '2.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('73c2cddf-3ded-11e7-9ba7-08edb9d95ef0', '3.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');

@@ -70,65 +70,90 @@
 </div>
 
 <div class="wz"><a href="#">Home</a> > About Us > Company Profile</div>
-<div class="p1">
-    <div class="p1_l">
-        <div class="p1_lt">Skidded Equipment</div>
-        <div class="pl_lm">
+<!--产品介绍部分-->
+    <div class="container">
+        <div class="page-header">
+            <h2>
+                ${itemOne.itemName }
+            </h2>
+        </div>
+        <div id="slidershow" class="carousel">
+            <!-- 设置图片轮播的顺序
+            <ol class="carousel-indicators">
+                <!-- <li class="active" data-target="#slidershow" data-slide-to="0"></li>
+                <li data-target="#slidershow" data-slide-to="1"></li>
+                <li data-target="#slidershow" data-slide-to="2"></li>-->
 
-            <script type="text/javascript" src="js/mzp-packed.js"></script>
-            <div class="box1 fl">
-                <div class="left-pro1">
-                    <div class="t2"> <a href="images/spic1.jpg" id="zoom1" class="MagicZoom"> <img src="images/spic1.jpg" id="main_img" class="main_img" style="width: 452px; height: 341px; border:#d5d5d5 solid 1px; margin-top:20px;" /></a> </div>
-                    <div class="t1"> <img src="images/xqtop.jpg" id="gotop" style="width:82px; height:10px; margin-left:18px;" />
-                        <div id="showArea" class="xqpic">
-                            <a href="images/spic1.jpg" rel="zoom1" rev="images/spic1.jpg" class="huaguo"> <img src="images/spic1.jpg" /></a>
-                            <a href="images/spic2.jpg" rel="zoom1" rev="images/spic2.jpg" class="huaguo"> <img src="images/spic2.jpg" /></a>
-                            <a href="images/spic3.jpg" rel="zoom1" rev="images/spic3.jpg" class="huaguo"> <img src="images/spic3.jpg" /></a>
-                            <a href="images/spic1.jpg" rel="zoom1" rev="images/spic1.jpg" class="huaguo"> <img src="images/spic1.jpg" /></a>
-                            <a href="images/spic2.jpg" rel="zoom1" rev="images/spic2.jpg" class="huaguo"> <img src="images/spic2.jpg" /></a>
-                            <a href="images/spic3.jpg" rel="zoom1" rev="images/spic3.jpg" class="huaguo"> <img src="images/spic3.jpg" /></a>
-                            <a href="images/spic1.jpg" rel="zoom1" rev="images/spic1.jpg" class="huaguo"> <img src="images/spic1.jpg" /></a>
-                            <a href="images/spic2.jpg" rel="zoom1" rev="images/spic2.jpg" class="huaguo"> <img src="images/spic2.jpg" /></a>
-                            <a href="images/spic3.jpg" rel="zoom1" rev="images/spic3.jpg" class="huaguo"> <img src="images/spic3.jpg" /></a>
-
-                            <div class="clear"> </div>
+                <c:forEach items="${picdataList }" var="e" begin="0" step="1" varStatus="s">
+                    <c:if test="${s.index==0}">
+                        <li class="active" data-target="#slidershow" data-slide-to="0"></li>
+                    </c:if>
+                    <li data-target="#slidershow" data-slide-to="${s.index}"></li>
+                </c:forEach>
+            </ol>
+            <!-- 设置轮播图片 -->
+            <div class="carousel-inner">
+                <c:forEach items="${picdataList }" var="e" begin="0" step="1" varStatus="s">
+                    <c:if test="${s.index==0}">
+                        <div class="item active">
+                            <img src="${e.picPath}/${e.picName}" alt="">
+                            <!-- 图片对应标题和描述内容 -->
                         </div>
-                        <img src="images/xqbottom.jpg" id="gobottom" style="width:82px; height: 10px; margin-left:18px;" /> </div>
-                    <div class="clear"> </div>
-                </div>
-
-                <script type="text/javascript" src="js/lrtk.js"></script></div>
-
-
-
-
-
-
-
-
+                    </c:if>
+                    <div class="item"><img src="${e.picPath}/${e.picName}" alt=""><!-- 图片对应标题和描述内容 --></div>
+                </c:forEach>
+            </div>
+            <!-- 设置轮播图片控制器 -->
+            <div class="left carousel-control">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </div>
+            <div class="right carousel-control">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </div>
         </div>
-        <div class="p1_lmm"><a href="#">Inquire Now</a><a href="#">Next Product</a></div>
-        <div class="p1_lf">
-            <div class="p1_lft">Product Description</div>
-            <div class="p1_lfb">Product DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct<br /><br />
-
-                DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct <br /><br />
-
-                DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct DescriptionProduct Description</div>
-        </div>
-
+        <script>
+            $(function(){
+                $("#slidershow").carousel({
+                    interval:2000
+                });
+                $("#slidershow div.left").click(function(){
+                    $(".carousel").carousel("prev");
+                });
+                $("#slidershow div.right").click(function(){
+                    $(".carousel").carousel("next");
+                });
+            });
+        </script>
+        <!--
+            作者：xiezhjinbu@hotmail.com
+            时间：2017-05-21
+            描述：内容介绍
+        -->
+        <table class="table">
+            <tbody>
+            <tr>
+                <td width="33%" align="middle"><h3>商品名称</h3></td>
+                <td width="66%" align="middle"><h3>${itemOne.itemName }</h3></td>
+            </tr>
+            <tr>
+                <td width="33%" align="middle"><h3>商品分类</h3></td>
+                <td width="66%" align="middle"><h3>${itemOne.className }</h3></td>
+            </tr>
+            <tr>
+                <td width="33%" align="middle"><h3>商品介绍</h3></td>
+                <td width="66%" align="middle"><h3>${itemOne.gModel }</h3></td>
+            </tr>
+            <tr>
+                <td width="33%" align="middle"><h3>商品材质</h3></td>
+                <td width="66%" align="middle"><h3>${itemOne.material }</h3></td>
+            </tr>
+            <tr>
+                <td width="33%" align="middle"><h3>商品单价</h3></td>
+                <td width="66%" align="middle"><h3>${itemOne.price }</h3></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="p1_r">
-        <div class="p1_rt">Latest News</div>
-        <div class="p1_rb">
-            <ul>
-                <li><img src="images/news.jpg" /><p><a href="#">The introductin of our new Horizontal tank</a></p></li>
-                <li><img src="images/news.jpg" /><p><a href="#">The introductin of our new Horizontal tank</a></p></li>
-                <li><img src="images/news.jpg" /><p><a href="#">The introductin of our new Horizontal tank</a></p></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
 <div class="fnav">
     <div class="fnav_n">

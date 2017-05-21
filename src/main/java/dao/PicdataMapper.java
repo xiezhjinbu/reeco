@@ -3,6 +3,8 @@ package dao;
 import annotation.MyBatisRepository;
 import entity.Picdata;
 
+import java.util.List;
+
 @MyBatisRepository
 public interface PicdataMapper {
     /**
@@ -52,4 +54,6 @@ public interface PicdataMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Picdata record);
+
+    List<Picdata> selectByProductId(String id);
 }
