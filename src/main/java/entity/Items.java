@@ -177,4 +177,53 @@ public class Items {
     public Float getPrice() {
         return price;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setClassType(Integer classType) {
+        this.classType = classType;
+    }
+
+    public void setgModel(String gModel) {
+        this.gModel = gModel;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public Items() {
+    }
+
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id='" + id + '\'' +
+                ", itemName='" + itemName + '\'' +
+                ", itemCode='" + itemCode + '\'' +
+                ", material='" + material + '\'' +
+                ", className='" + className + '\'' +
+                ", classType=" + classType +
+                ", gModel='" + gModel + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

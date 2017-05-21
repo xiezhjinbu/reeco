@@ -95,10 +95,10 @@
         </div>
         <div class="fnav_nll">
             <p>NAVIGATION</p>
-            <a href="about1.html">About us</a>
-            <a href="customer.html">Products</a>
+            <a href="about.do">About us</a>
+            <a href="customer.do">Products</a>
             <c:forEach items="${lists }" var="e">
-                <a href="customer.html?classType=${e.classType }">${e.className }</a>
+                <a href="someCustomer.jsp?classType=${e.classType }">${e.className }</a>
             </c:forEach>
 
         </div>

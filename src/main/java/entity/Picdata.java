@@ -87,4 +87,23 @@ public class Picdata {
     public String getProductId() {
         return productId;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setPicName(String picName) {
+        this.picName = picName;
+    }
+
+    public void setPicPath(String picPath) {
+        this.picPath = picPath;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public Picdata() {
+    }
 }

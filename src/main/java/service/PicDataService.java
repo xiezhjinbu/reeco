@@ -19,4 +19,8 @@ public class PicDataService {
     public List<Picdata> getPicDataByProductID(String id){
         return  picdataMapper.selectByProductId(id);
     }
+
+    public int addPic(Picdata picdata){
+        return  picdataMapper.insert(picdata);
+    }
 }

@@ -6,5 +6,6 @@ import java.util.List;
 
 @MyBatisRepository
 public interface ItemTypeMapper {
+    ItemType selectByClassType(Integer classType);
     List<ItemType> selectAllItemType();
 }

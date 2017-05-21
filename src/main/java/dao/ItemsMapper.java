@@ -57,4 +57,6 @@ public interface ItemsMapper {
 
     List<Items> selectByClassType(Integer classType);
 
+    List<Items> selectAllItems();
+
 }

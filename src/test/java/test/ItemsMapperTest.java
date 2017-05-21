@@ -1,27 +1,16 @@
 package test;
 
-import common.ContactInformation;
-import common.GlobalData;
-import dao.CompanyInfoMapper;
-import dao.ItemTypeMapper;
-import dao.ItemsMapper;
-import entity.Items;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import service.CompanyInfoService;
 import service.ItemsService;
 import service.PicDataService;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2017/5/15.
  */
 public class ItemsMapperTest {
-/**@Test
+    @Test
     public void selectByPrimaryKey() throws Exception {
         ApplicationContext ac = new ClassPathXmlApplicationContext(new String("applicationContext.xml"));
         //System.out.println(ac.toString());
@@ -32,21 +21,15 @@ public class ItemsMapperTest {
 
        //ItemsMapper itemsMapper=ac.getBean("itemsMapper",ItemsMapper.class);
        // System.out.println(itemsMapper.selectByPrimaryKey("9efc54b8-3c8d-11e7-9988-08edb9d95ef0"));
-        //ItemsService itemsService=ac.getBean("itemsService",ItemsService.class);
+        ItemsService itemsService=ac.getBean("itemsService",ItemsService.class);
         //CompanyInfoService companyInfoService=ac.getBean("companyInfoService",CompanyInfoService.class);
         //ItemTypeMapper itemTypeMapper=ac.getBean("itemTypeMapper",ItemTypeMapper.class);
         //System.out.println(itemTypeMapper.selectAllItemType());
 
         //Items items=itemsMapper.selectByPrimaryKey("");
 
-        PicDataService picDataService=ac.getBean("picDataService",PicDataService.class);
-        System.out.println(picDataService.getPicDataByProductID("9efc54b8-3c8d-11e7-9988-08edb9d95ef0"));
+        //PicDataService picDataService=ac.getBean("picDataService",PicDataService.class);
+        System.out.println(itemsService.getAllItems());
     }
 
-    @Test
-    public  void testGlobalData(){
-        ContactInformation ci=GlobalData.getContactInformation();
-        System.out.println(ci);
-    }
- */
 }

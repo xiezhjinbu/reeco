@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -24,41 +25,29 @@
             <th>商品编码</th>
             <th>商品名称</th>
             <th>商品类型</th>
-            <th>操作</th>
+            <th>商品材质</th>
+            <th>
+                <a class="glyphicon glyphicon-plus" href="itemsIn.do"></a>
+            </th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-        </tr>
-        <tr>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-        </tr>
-        <tr>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-        </tr>
-        <tr>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-            <td><h3>Tanmay</h3></td>
-        </tr>
+        <c:forEach items="${lists }" var="e" varStatus="s" begin="1" step="1">
+            <tr>
+                <td><h5>${s.index }</h5></td>
+                <td><h5>${e.itemCode }</h5></td>
+                <td><h5>${e.itemName }</h5></td>
+                <td><h5>${e.className }</h5></td>
+                <td><h5>${e.material }</h5></td>
+                <td>
+                    <a class="glyphicon glyphicon-pencil" href="itemsEdit.do?id=${e.id }"></a>
+                    <a class="glyphicon glyphicon-remove" href="itemsDelete.do?id=${e.id }"></a>
+                </td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
-    <ul class="pager">
+   <!-- <ul class="pager">
         <li><a href="#">&laquo;</a></li>
         <li class="active"><a href="#">1</a></li>
         <li class="disabled"><a href="#">2</a></li>
@@ -66,7 +55,7 @@
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
         <li><a href="#">&raquo;</a></li>
-    </ul>
+    </ul>-->
 </div>
 
 </body>

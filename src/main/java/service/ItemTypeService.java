@@ -20,4 +20,8 @@ public class ItemTypeService {
         return  itemTypeMapper.selectAllItemType();
     }
 
+    public  ItemType getItemTypeByClassType(int ClassType){
+        return  itemTypeMapper.selectByClassType(ClassType);
+    }
+
 }

@@ -95,8 +95,8 @@
         </div>
         <div class="fnav_nll">
             <p>NAVIGATION</p>
-            <a href="about.jsp">About us</a>
-            <a href="customer.jsp">Products</a>
+            <a href="about.do">About us</a>
+            <a href="customer.do">Products</a>
             <c:forEach items="${lists }" var="e">
                 <a href="someCustomer.jsp?classType=${e.classType }">${e.className }</a>
             </c:forEach>

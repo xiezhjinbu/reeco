@@ -1,5 +1,6 @@
 package action;
 
+import common.FileUpload;
 import entity.CompanyInfo;
 import entity.ItemType;
 import entity.Items;
@@ -9,11 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import service.CompanyInfoService;
 import service.ItemTypeService;
 import service.ItemsService;
 import service.PicDataService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -64,5 +69,73 @@ public class ProductAction {
         model.addAttribute("picdataList",picdataList);
         //System.out.println(companyInfo.toString());
         return "product";
+    }
+
+    @RequestMapping("/itemlist.do")
+    public String showItemList(Model model){
+
+        List<Items> lists=itemsService.getAllItems();
+        model.addAttribute("lists",lists);
+        //System.out.println(companyInfo.toString());
+        return "itemsList";
+    }
+
+
+    @RequestMapping("/itemsEdit.do")
+    public String editItemList(@RequestParam(value="id") String id,Model model){
+
+        List<ItemType> listTypes=itemTypeService.getAllItemType();
+        Items items=itemsService.getItemsByID(id);
+        model.addAttribute("items",items);
+        model.addAttribute("listTypes",listTypes);
+        //System.out.println(companyInfo.toString());
+        return "itemsEdit";
+    }
+
+    @RequestMapping("/itemsModify.do")
+    public String modifyItemList(Items items, @RequestParam("inputfile") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String filePath = FileUpload.uploadFile(file, request);
+        Picdata picdata=new Picdata();
+        picdata.setPicName(file.getName());
+        picdata.setPicPath(filePath);
+        picdata.setProductId(items.getId());
+
+        ItemType itemType=itemTypeService.getItemTypeByClassType(items.getClassType());
+        items.setClassName(itemType.getClassName());
+        itemsService.modifyItem(items);
+        picDataService.addPic(picdata);
+
+        //System.out.println(companyInfo.toString());
+        return "redirect:itemlist.do";
+    }
+
+    @RequestMapping("/itemsDelete.do")
+    public String deleteItemList(@RequestParam(value="id") String id,Model model){
+
+        itemsService.deleteItem(id);
+        //System.out.println(companyInfo.toString());
+        return "redirect:itemlist.do";
+    }
+
+    @RequestMapping("/itemsAdd.do")
+    public String addItemList(Items items){
+
+        ItemType itemType=itemTypeService.getItemTypeByClassType(items.getClassType());
+        items.setClassName(itemType.getClassName());
+
+        //System.out.println(items);
+        itemsService.addItem(items);
+        //
+        return "redirect:itemlist.do";
+    }
+
+    @RequestMapping("/itemsIn.do")
+    public String InItemList(Model model){
+
+        List<ItemType> listTypes=itemTypeService.getAllItemType();
+        model.addAttribute("listTypes",listTypes);
+        //System.out.println(companyInfo.toString());
+        return "itemsAdd";
     }
 }
