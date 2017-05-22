@@ -93,7 +93,7 @@ public class ProductAction {
     }
 
     @RequestMapping("/itemsModify.do")
-    public String modifyItemList(Items items, @RequestParam("inputfile") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String modifyItemList(@RequestParam(value = "inputfile") MultipartFile file,Items items, HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String filePath = FileUpload.uploadFile(file, request);
         Picdata picdata=new Picdata();

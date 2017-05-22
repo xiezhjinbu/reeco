@@ -62,14 +62,7 @@
         </ul>
     </div>
 </div>
-<div class="slide banner" data-slide='{"action":"click","fn":"banner_ext","time":"8000"}'>
-    <!--<div class="ban_c album"><a href="#"><img src="images/20140225171729652.jpg" /></a></div>
-    <div class="ban_c album"><a href="#"><img src="images/20140113173751727.jpg" /></a></div>
-    <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>
-  <div class="ban_c album"><a href="#"><img src="images/2013123109501990.jpg" /></a></div>-->
-</div>
 
-<div class="wz"><a href="#">Home</a> > About Us > Company Profile</div>
 <!--产品介绍部分-->
     <div class="container">
         <div class="page-header">
@@ -157,15 +150,6 @@
 
 <div class="fnav">
     <div class="fnav_n">
-        <div class="fnav_nll">
-            <p>QUICK LINKS</p>
-            <a href="#">Storage Tank</a>
-            <a href="#">Heat Exchanger</a>
-            <a href="#">Tower</a>
-            <a href="#">Spherical Tank</a>
-            <a href="#">Skidded Equipment</a>
-            <a href="#">Accessories</a>
-        </div>
         <div class="fnav_nll">
             <p>NAVIGATION</p>
             <a href="about.do">About us</a>

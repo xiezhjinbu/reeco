@@ -8,15 +8,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-
-    System.out.println(basePath);
-    System.out.println(path);
-%>
 <!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -88,15 +79,6 @@
 </div>
 <div class="fnav">
     <div class="fnav_n">
-        <div class="fnav_nll">
-            <p>QUICK LINKS</p>
-            <a href="#">Storage Tank</a>
-            <a href="#">Heat Exchanger</a>
-            <a href="#">Tower</a>
-            <a href="#">Spherical Tank</a>
-            <a href="#">Skidded Equipment</a>
-            <a href="#">Accessories</a>
-        </div>
         <div class="fnav_nll">
             <p>NAVIGATION</p>
             <a href="about.do">About us</a>

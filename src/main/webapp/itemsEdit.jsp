@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="page-header text-center"><h1>产品维护</h1></div>
-    <form class="form-horizontal" role="form" action="itemsModify.do" method="post">
+    <form class="form-horizontal" role="form" action="itemsModify.do" method="post" enctype=”multipart/form-data”>
         <div class="form-group">
             <label for="id" class="col-sm-2 control-label">商品ID</label>
             <div class="col-sm-10">
