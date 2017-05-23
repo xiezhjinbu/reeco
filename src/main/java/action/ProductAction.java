@@ -8,6 +8,7 @@ import entity.Picdata;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,7 @@ import service.PicDataService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -93,21 +95,42 @@ public class ProductAction {
     }
 
     @RequestMapping("/itemsModify.do")
-    public String modifyItemList(@RequestParam(value = "inputfile") MultipartFile file,Items items, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String modifyItemList(@RequestParam(value = "file", required = false)MultipartFile file,Items items, HttpServletRequest request, Model model) throws IOException {
 
-        String filePath = FileUpload.uploadFile(file, request);
+        System.out.println(items);
+        items.setClassName(itemTypeService.getItemTypeByClassType(items.getClassType()).getClassName());
+        String path = request.getSession().getServletContext().getRealPath("upload");
+        String fileName = file.getOriginalFilename();
+//        String fileName = new Date().getTime()+".jpg";
+        System.out.println(path);
+        System.out.println(fileName);
+        System.out.println(items.getId());
         Picdata picdata=new Picdata();
-        picdata.setPicName(file.getName());
-        picdata.setPicPath(filePath);
+        picdata.setPicName(fileName);
+        picdata.setPicPath(path);
         picdata.setProductId(items.getId());
 
-        ItemType itemType=itemTypeService.getItemTypeByClassType(items.getClassType());
-        items.setClassName(itemType.getClassName());
-        itemsService.modifyItem(items);
-        picDataService.addPic(picdata);
+        int result=picDataService.addPic(picdata);
+        result+=itemsService.modifyItem(items);
+        System.out.println(picdata);
+        System.out.println(result);
+        File targetFile = new File(path, fileName);
+        if(!targetFile.exists()){
+            targetFile.mkdirs();
+        }
+
+        //保存
+        try {
+            file.transferTo(targetFile);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        model.addAttribute("result",result);
 
         //System.out.println(companyInfo.toString());
-        return "redirect:itemlist.do";
+        return "itemsEdit";
     }
 
     @RequestMapping("/itemsDelete.do")

@@ -106,4 +106,14 @@ public class Picdata {
 
     public Picdata() {
     }
+
+    @Override
+    public String toString() {
+        return "Picdata{" +
+                "id='" + id + '\'' +
+                ", picName='" + picName + '\'' +
+                ", picPath='" + picPath + '\'' +
+                ", productId='" + productId + '\'' +
+                '}';
+    }
 }

@@ -73,15 +73,39 @@
         <div class="form-group">
             <label for="inputfile" class="col-sm-2 control-label">图片上传</label>
             <div class="col-sm-10">
-                <input type="file" name="inputfile"  id="inputfile">
+                <input type="file" name="file" id="inputfile">
             </div>
+            <a class="glyphicon glyphicon-plus" id="addfile"></a>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">提交</button>
+                <button class="btn btn-default" id="btn_items">提交</button>
             </div>
         </div>
     </form>
+    <script>
+        $("#addfile").click(
+            function(){
+                var fileItem="<input type='file' name='inputfile' >";
+                $("#div").append(fileItem);
+            }
+        );
+
+        $("#btn_items").click( function() {
+            var hideForm = $('form');
+            var options = {
+                dataType : "json", /*data: {'file': $("input[type=file]").val(), "username": '123', password: "123"},*/
+                success : function(result) {
+                        window.location.href="itemlist.do";
+                    },
+                error : function(result) {
+                    alert('失败上传！');
+                    self.location="itemlist.do";
+                }
+            };
+            hideForm.ajaxSubmit(options);
+        });
+    </script>
 </div>
 
 </body>

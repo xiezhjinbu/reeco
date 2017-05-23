@@ -3,14 +3,16 @@ package action;
 import entity.Picdata;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import service.PicDataService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2017/5/22.
@@ -27,12 +29,13 @@ public class UploadAction {
     }
 
     @RequestMapping(value = "/upload.do")
-    public String upload(@RequestParam(value = "file", required = false) MultipartFile file,@RequestParam(value = "username") String username,@RequestParam(value = "password") String password, HttpServletRequest request, ModelMap model) {
+    @ResponseBody
+    public String upload(@RequestParam(value = "file", required = false) MultipartFile file,@RequestParam(value = "username") String username,@RequestParam(value = "password") String password, HttpServletRequest request, Model model) {
 
         System.out.println("开始"+username+":"+password);
         String path = request.getSession().getServletContext().getRealPath("upload");
-        String fileName = file.getOriginalFilename();
-//        String fileName = new Date().getTime()+".jpg";
+        //String fileName = file.getOriginalFilename();
+        String fileName = new Date().getTime()+".jpg";
         System.out.println(path);
         Picdata picdata=new Picdata();
         picdata.setPicName(fileName);
