@@ -21,7 +21,6 @@
     <input type="text" name="password">
     <input type="text" name="username">
     <input type="file" name="file" />
-    <input type="submit" value="Submit" />
 </form>
 <button id="button">提交</button>
 <script>

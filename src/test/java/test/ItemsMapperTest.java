@@ -1,5 +1,6 @@
 package test;
 
+import entity.Picdata;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,15 +22,18 @@ public class ItemsMapperTest {
 
        //ItemsMapper itemsMapper=ac.getBean("itemsMapper",ItemsMapper.class);
        // System.out.println(itemsMapper.selectByPrimaryKey("9efc54b8-3c8d-11e7-9988-08edb9d95ef0"));
-        ItemsService itemsService=ac.getBean("itemsService",ItemsService.class);
+        //ItemsService itemsService=ac.getBean("itemsService",ItemsService.class);
         //CompanyInfoService companyInfoService=ac.getBean("companyInfoService",CompanyInfoService.class);
         //ItemTypeMapper itemTypeMapper=ac.getBean("itemTypeMapper",ItemTypeMapper.class);
         //System.out.println(itemTypeMapper.selectAllItemType());
 
         //Items items=itemsMapper.selectByPrimaryKey("");
-
-        //PicDataService picDataService=ac.getBean("picDataService",PicDataService.class);
-        System.out.println(itemsService.getAllItems());
+        Picdata picdata=new Picdata();
+        picdata.setPicPath("11");
+        picdata.setPicName("22");
+        picdata.setProductId("213123123");
+        PicDataService picDataService=ac.getBean("picDataService",PicDataService.class);
+        System.out.println(picDataService.addPic(picdata));
     }
 
 }

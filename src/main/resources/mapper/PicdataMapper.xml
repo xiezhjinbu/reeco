@@ -45,7 +45,7 @@
     -->
     insert into picdata (ID, PIC_NAME, PIC_PATH,PRODUCT_ID
       )
-    values (UUID(), #{picName,jdbcType=VARCHAR}, #{picPath,jdbcType=VARCHAR},#{productId,jdbcType=VARCHAR}}
+    values (UUID(), #{picName,jdbcType=VARCHAR}, #{picPath,jdbcType=VARCHAR},#{productId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="entity.Picdata" >
