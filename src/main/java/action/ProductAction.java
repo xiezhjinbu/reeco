@@ -127,7 +127,7 @@ public class ProductAction {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        model.addAttribute("result",result);
+        model.addAttribute("result",true);
 
         //System.out.println(companyInfo.toString());
         return "itemsEdit";
