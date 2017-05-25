@@ -17,7 +17,18 @@
 </head>
 <body>
 <div class="container">
-    <div class="page-header text-center"><h1>产品维护列表</h1></div>
+    <div class="page-header text-center"><h1>后台维护</h1></div>
+    <div class="btn-group btn-group-justified" role="group" >
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="window.location.href='companyEdit.do'">维护企业信息</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">新增商品信息</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">新增图片</button>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -26,9 +37,7 @@
             <th>商品名称</th>
             <th>商品类型</th>
             <th>商品材质</th>
-            <th>
-                <a class="glyphicon glyphicon-plus" href="itemsIn.do"></a>
-            </th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +50,7 @@
                 <td><h5>${e.material }</h5></td>
                 <td>
                     <a class="glyphicon glyphicon-pencil" href="itemsEdit.do?id=${e.id }"></a>
+                    <a class="glyphicon glyphicon-file" href="itemsEdit.do?id=${e.id }"></a>
                     <a class="glyphicon glyphicon-remove" href="itemsDelete.do?id=${e.id }"></a>
                 </td>
             </tr>

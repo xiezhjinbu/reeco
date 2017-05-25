@@ -19,11 +19,11 @@
 <body>
 <div class="container">
     <div class="page-header text-center"><h1>公司维护</h1></div>
-    <form class="form-horizontal" role="form" action="companyModify.do" method="post" enctype=”multipart/form-data”>
+    <form class="form-horizontal" role="form" action="itemsModify.do" method="post" enctype=”multipart/form-data”>
         <div class="form-group">
-            <label class="col-sm-2 control-label">公司名字</label>
+            <label for="companyName" class="col-sm-2 control-label">公司名字</label>
             <div class="col-sm-10">
-                <input class="form-control" id="companyName" name="companyName" type="text" value="${companyInfo.companyName }" disabled>
+                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="请输入公司名字" value="${companyInfo.companyName }">
             </div>
         </div>
         <div class="form-group">
@@ -46,8 +46,7 @@
         </div>
         <div class="form-group">
             <label for="phone" class="col-sm-2 control-label">手机号码</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入商品介绍" value="${companyInfo.phone }">
+            <div class="col-sm-10"><input type="text" class="form-control" name="phone" id="phone" placeholder="请输入商品介绍" value="${companyInfo.phone }">
             </div>
         </div>
         <div class="form-group">
@@ -85,4 +84,5 @@
 
 </body>
 </html>
+
 

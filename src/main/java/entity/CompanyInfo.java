@@ -183,6 +183,42 @@ public class CompanyInfo {
         return addrCo;
     }
 
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setContacCo(String contacCo) {
+        this.contacCo = contacCo;
+    }
+
+    public void setTelCo(Integer telCo) {
+        this.telCo = telCo;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public void setFb(String fb) {
+        this.fb = fb;
+    }
+
+    public void setTw(String tw) {
+        this.tw = tw;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public void setAddrCo(String addrCo) {
+        this.addrCo = addrCo;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
     @Override
     public String toString() {
         return "CompanyInfo{" +

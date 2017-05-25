@@ -19,5 +19,9 @@ public class CompanyInfoService {
         return  companyInfoMapper.selectCompanyInfo();
     }
 
+    public int modifyCompanyInfo(CompanyInfo companyInfo){
+        return  companyInfoMapper.updateCompanyInfo(companyInfo);
+    }
+
 
 }

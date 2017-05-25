@@ -21,12 +21,6 @@
     <div class="page-header text-center"><h1>产品维护</h1></div>
     <form class="form-horizontal" role="form" action="itemsModify.do" method="post" enctype=”multipart/form-data”>
         <div class="form-group">
-            <label for="id" class="col-sm-2 control-label">商品ID</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="id" id="id" placeholder="请输入商品名称" value="${items.id }">
-            </div>
-        </div>
-        <div class="form-group">
             <label for="itemName" class="col-sm-2 control-label">商品名称</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="itemName" id="itemName" placeholder="请输入商品名称" value="${items.itemName }">
@@ -60,52 +54,27 @@
             <label for="classType" class="col-sm-2 control-label">商品类型</label>
             <div class="col-sm-10">
                 <select class="form-control" name="classType" id="classType">
-                    <c:forEach items="${listTypes }" var="e">
-                        <c:if test="${e.classType==items.classType}">
+                  <c:forEach items="${listTypes }" var="e">
+                    <c:choose>
+                        <c:when test="${e.classType==items.classType}">
                             <option  selected="selected">${e.classType}</option>
-                        </c:if>
-                        <option >${e.classType}</option>
-                    </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <option >${e.classType}</option>
+                        </c:otherwise>
+                    </c:choose>
+                  </c:forEach>
                 </select>
             </div>
 
         </div>
-        <div class="form-group">
-            <label for="inputfile" class="col-sm-2 control-label">图片上传</label>
-            <div class="col-sm-10">
-                <input type="file" name="file" id="inputfile">
-            </div>
-            <a class="glyphicon glyphicon-plus" id="addfile"></a>
-        </div>
+        <input type="hidden" class="form-control" name="id" id="id" value="${items.id }">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" id="btn_items">提交</button>
+                <button type="submit" class="btn btn-default" id="btn_items">提交</button>
             </div>
         </div>
     </form>
-    <script>
-        $("#addfile").click(
-            function(){
-                var fileItem="<input type='file' name='inputfile' >";
-                $("#inputfile").append(fileItem);
-            }
-        );
-
-        $("#btn_items").click( function() {
-            var hideForm = $('form');
-            var options = {
-                dataType : "json", /*data: {'file': $("input[type=file]").val(), "username": '123', password: "123"},*/
-                success : function(result) {
-                        window.location.href="itemlist.do";
-                    },
-                error : function(result) {
-                    alert('失败上传！');
-                    self.location="itemlist.do";
-                }
-            };
-            hideForm.ajaxSubmit(options);
-        });
-    </script>
 </div>
 
 </body>

@@ -29,6 +29,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class ProductAction {
+
     private CompanyInfoService companyInfoService;
 
     private ItemTypeService itemTypeService;

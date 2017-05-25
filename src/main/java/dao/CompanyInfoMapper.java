@@ -9,4 +9,6 @@ import entity.CompanyInfo;
 @MyBatisRepository
 public interface CompanyInfoMapper {
     public CompanyInfo selectCompanyInfo();
+
+    public int updateCompanyInfo(CompanyInfo companyInfo);
 }
