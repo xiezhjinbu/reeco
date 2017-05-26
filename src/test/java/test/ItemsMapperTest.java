@@ -30,10 +30,10 @@ public class ItemsMapperTest {
         //System.out.pr
         //Items items=itemsMappintln(itemTypeMapper.selectAllItemType());
         CompanyInfo companyInfo=companyInfoService.getCompanyInfo();
-        companyInfo.seteMail("111@111@111");
-        companyInfo.setAddrCo("asdgausfuydsgi");
-        int i=companyInfoService.modifyCompanyInfo(companyInfo);
-        System.out.println(i);
+        //companyInfo.seteMail("111@111@111");
+        //companyInfo.setAddrCo("asdgausfuydsgi");
+        //int i=companyInfoService.modifyCompanyInfo(companyInfo);
+        System.out.println(companyInfo);
     }
 
 }

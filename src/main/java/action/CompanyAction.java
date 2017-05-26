@@ -34,12 +34,12 @@ public class CompanyAction {
     }
 
     @RequestMapping("/companyModify.do")
-    public String modifyCompanyInfo(@RequestParam CompanyInfo companyInfo, Model model){
+    public String modifyCompanyInfo(CompanyInfo companyInfo
+            , Model model){
 
-        System.out.println(companyInfo);
         int i=companyInfoService.modifyCompanyInfo(companyInfo);
-        //System.out.println(companyInfo.toString());
-        model.addAttribute("i",i);
+        //System.out.println(companyInfoService.getCompanyInfo());
+        model.addAttribute("companyInfo",companyInfoService.getCompanyInfo());
 
         return "companyShow";
     }

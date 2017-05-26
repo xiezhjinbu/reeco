@@ -19,11 +19,11 @@
 <body>
 <div class="container">
     <div class="page-header text-center"><h1>公司维护</h1></div>
-    <form class="form-horizontal" role="form" action="companyModify.do" method="post" enctype=”multipart/form-data”>
+    <form class="form-horizontal" role="form" action="companyModify.do" method="post">
         <div class="form-group">
-            <label class="col-sm-2 control-label">公司名字</label>
+            <label for="companyName" class="col-sm-2 control-label">公司名字</label>
             <div class="col-sm-10">
-                <input class="form-control" id="companyName" name="companyName" type="text" value="${companyInfo.companyName }" disabled>
+                <input class="form-control" id="companyName" name="companyName" type="text" value="${companyInfo.companyName }" readonly>
             </div>
         </div>
         <div class="form-group">
@@ -41,13 +41,13 @@
         <div class="form-group">
             <label for="telCo" class="col-sm-2 control-label">联系电话</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="telCo"  id="telCo" placeholder="请输入商品代码" value="${companyInfo.telCo }">
+                <input type="text" class="form-control" name="telCo"  id="telCo" placeholder="请输入商品代码" value="${companyInfo.telCo }"  onkeydown="onlyNum();" style="ime-mode:Disabled">
             </div>
         </div>
         <div class="form-group">
             <label for="phone" class="col-sm-2 control-label">手机号码</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入商品介绍" value="${companyInfo.phone }">
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入商品介绍" value="${companyInfo.phone }" onkeydown="onlyNum();" style="ime-mode:Disabled">
             </div>
         </div>
         <div class="form-group">
@@ -56,13 +56,13 @@
                 <input type="text" class="form-control" name="fb" id="fb" placeholder="请输入商品材质" value="${companyInfo.fb }">
             </div>
         </div>
+
         <div class="form-group">
             <label for="tw" class="col-sm-2 control-label">Twitter</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" name="tw" id="tw" placeholder="请输入商品价格" value="${companyInfo.tw }">
             </div>
         </div>
-
         <div class="form-group">
             <label for="addrCo" class="col-sm-2 control-label">联系地址</label>
             <div class="col-sm-10">
@@ -81,6 +81,13 @@
             </div>
         </div>
     </form>
+    <script>
+        function onlyNum() {
+            if(!(event.keyCode==46)&&!(event.keyCode==8)&&!(event.keyCode==37)&&!(event.keyCode==39))
+                if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)))
+                    event.returnValue=false;
+        }
+    </script>
 </div>
 
 </body>

@@ -1,6 +1,5 @@
 package action;
 
-import common.FileUpload;
 import entity.CompanyInfo;
 import entity.ItemType;
 import entity.Items;
@@ -8,9 +7,9 @@ import entity.Picdata;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import service.CompanyInfoService;
 import service.ItemTypeService;
@@ -18,10 +17,11 @@ import service.ItemsService;
 import service.PicDataService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/5/20.
@@ -96,42 +96,48 @@ public class ProductAction {
     }
 
     @RequestMapping("/itemsModify.do")
-    public String modifyItemList(@RequestParam(value = "file", required = false)MultipartFile file,Items items, HttpServletRequest request, Model model) throws IOException {
+    public @ResponseBody
+    Map<String,Object> modifyItemList(@RequestParam(value = "file", required = false)MultipartFile file, Items items, HttpServletRequest request, Model model) throws IOException {
 
         System.out.println(items);
+        int result=0;
         items.setClassName(itemTypeService.getItemTypeByClassType(items.getClassType()).getClassName());
-        String path = request.getSession().getServletContext().getRealPath("upload");
-        String fileName = file.getOriginalFilename();
+        if (file!=null) {
+            String path = request.getSession().getServletContext().getRealPath("upload");
+            String fileName = file.getOriginalFilename();
 //        String fileName = new Date().getTime()+".jpg";
-        System.out.println(path);
-        System.out.println(fileName);
-        System.out.println(items.getId());
-        Picdata picdata=new Picdata();
-        picdata.setPicName(fileName);
-        picdata.setPicPath(path);
-        picdata.setProductId(items.getId());
+            System.out.println(path);
+            System.out.println(fileName);
+            System.out.println(items.getId());
+            Picdata picdata = new Picdata();
+            picdata.setPicName(fileName);
+            picdata.setPicPath(path);
+            picdata.setProductId(items.getId());
+            System.out.println(picdata);
+            result = picDataService.addPic(picdata);
 
-        int result=picDataService.addPic(picdata);
-        result+=itemsService.modifyItem(items);
-        System.out.println(picdata);
+            File targetFile = new File(path, fileName);
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+            }
+
+            //保存
+            try {
+                file.transferTo(targetFile);
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+        itemsService.modifyItem(items);
+
         System.out.println(result);
-        File targetFile = new File(path, fileName);
-        if(!targetFile.exists()){
-            targetFile.mkdirs();
-        }
-
-        //保存
-        try {
-            file.transferTo(targetFile);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
-        model.addAttribute("result",true);
+        Map<String, Object> map = new HashMap<String, Object>(10);
+        map.put("result",(result==0)?false:true);
 
         //System.out.println(companyInfo.toString());
-        return "itemsEdit";
+        return map;
     }
 
     @RequestMapping("/itemsDelete.do")

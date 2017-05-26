@@ -68,13 +68,31 @@
             </div>
 
         </div>
+        <div class="form-group">
+            <label for="exampleInputFile" class="col-sm-2 control-label">文件上传</label>
+            <div class="col-sm-10">
+                <input type="file" id="exampleInputFile" name="file">
+            </div>
+        </div>
         <input type="hidden" class="form-control" name="id" id="id" value="${items.id }">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default" id="btn_items">提交</button>
+                <button class="btn btn-default" id="btn_items">提交</button>
             </div>
         </div>
     </form>
+    <script>
+        $("#btn_items").click( function() {
+            var hideForm = $('form');
+            var options = {
+                dataType : "json", /*data: {'file': $("input[type=file]").val(), "username": '123', password: "123"},*/
+                beforeSubmit : function() { alert("正在上传"); },
+                success : function(result) { alert('成功上传！'); },
+                error : function(result) { alert('失败上传！');}
+            };
+            hideForm.ajaxSubmit(options);
+        });
+    </script>
 </div>
 
 </body>
