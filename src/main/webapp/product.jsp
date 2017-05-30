@@ -66,10 +66,11 @@
 <!--产品介绍部分-->
     <div class="container">
         <div class="page-header">
-            <h2>
+            <h2 align="center">
                 ${itemOne.itemName }
             </h2>
         </div>
+        <div id="leftForProduct" align="center">
         <div id="slidershow" class="carousel">
             <!-- 设置图片轮播的顺序
             <ol class="carousel-indicators">
@@ -104,6 +105,7 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </div>
         </div>
+        </div>
         <script>
             $(function(){
                 $("#slidershow").carousel({
@@ -122,30 +124,30 @@
             时间：2017-05-21
             描述：内容介绍
         -->
-        <table class="table">
-            <tbody>
-            <tr>
-                <td width="33%" align="middle"><h3>商品名称</h3></td>
-                <td width="66%" align="middle"><h3>${itemOne.itemName }</h3></td>
-            </tr>
-            <tr>
-                <td width="33%" align="middle"><h3>商品分类</h3></td>
-                <td width="66%" align="middle"><h3>${itemOne.className }</h3></td>
-            </tr>
-            <tr>
-                <td width="33%" align="middle"><h3>商品介绍</h3></td>
-                <td width="66%" align="middle"><h3>${itemOne.gModel }</h3></td>
-            </tr>
-            <tr>
-                <td width="33%" align="middle"><h3>商品材质</h3></td>
-                <td width="66%" align="middle"><h3>${itemOne.material }</h3></td>
-            </tr>
-            <tr>
-                <td width="33%" align="middle"><h3>商品单价</h3></td>
-                <td width="66%" align="middle"><h3>${itemOne.price }</h3></td>
-            </tr>
-            </tbody>
-        </table>
+        <div id="rightForProduct">
+            <ul class="list-group">
+                <li class="list-group-item active">商品名称</li>
+                <li class="list-group-item" align="center">
+                    <h3>${itemOne.itemName }</h3>
+                </li>
+                <li class="list-group-item active">商品分类</li>
+                <li class="list-group-item" align="center">
+                    <h3>${itemOne.className }</h3>
+                </li>
+                <li class="list-group-item active">商品介绍</li>
+                <li class="list-group-item" align="center">
+                    <h3>${itemOne.gModel }</h3>
+                </li>
+                <li class="list-group-item active">商品材质</li>
+                <li class="list-group-item" align="center">
+                    <h3>${itemOne.material }</h3>
+                </li>
+                <li class="list-group-item active">商品单价</li>
+                <li class="list-group-item" align="center">
+                    <h3>${itemOne.price }</h3>
+                </li>
+            </ul>
+        </div>
     </div>
 
 <div class="fnav">
@@ -154,6 +156,7 @@
             <p>NAVIGATION</p>
             <a href="about.do">About us</a>
             <a href="customer.do">Products</a>
+            <a href="itemlist.do">后台管理</a>
             <c:forEach items="${lists }" var="e">
                 <a href="someCustomer.jsp?classType=${e.classType }">${e.className }</a>
             </c:forEach>
@@ -171,7 +174,7 @@
 <div class="f">
     <div class="foot">
         <div class="fl">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
-        <div class="fr">Powered by Reanod | Sitemap</div>
+        <div class="fl">Powered by Reanod | Sitemap</div>
     </div>
 </div>
 </body>

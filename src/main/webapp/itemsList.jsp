@@ -23,10 +23,10 @@
             <button type="button" class="btn btn-default" onclick="window.location.href='companyEdit.do'">维护企业信息</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">新增商品信息</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='itemsIn.do'">新增商品信息</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">新增图片</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='fileUploadDemo.jsp'">新增图片</button>
         </div>
     </div>
     <table class="table table-striped">
@@ -41,16 +41,16 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${lists }" var="e" varStatus="s" begin="1" step="1">
+        <c:forEach items="${lists }" var="e" varStatus="s" begin="0" step="1">
             <tr>
-                <td><h5>${s.index }</h5></td>
+                <td><h5>${s.index+1 }</h5></td>
                 <td><h5>${e.itemCode }</h5></td>
                 <td><h5>${e.itemName }</h5></td>
                 <td><h5>${e.className }</h5></td>
                 <td><h5>${e.material }</h5></td>
                 <td>
                     <a class="glyphicon glyphicon-pencil" href="itemsEdit.do?id=${e.id }"></a>
-                    <a class="glyphicon glyphicon-file" href="itemsEdit.do?id=${e.id }"></a>
+                    <a class="glyphicon glyphicon-file" href="addPic.do?id=${e.id }"></a>
                     <a class="glyphicon glyphicon-remove" href="itemsDelete.do?id=${e.id }"></a>
                 </td>
             </tr>

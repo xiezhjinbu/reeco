@@ -81,6 +81,7 @@
             <p>NAVIGATION</p>
             <a href="about.do">About us</a>
             <a href="customer.do">Products</a>
+            <a href="itemlist.do">后台管理</a>
             <c:forEach items="${lists }" var="e">
                 <a href="someCustomer.jsp?classType=${e.classType }">${e.className }</a>
             </c:forEach>

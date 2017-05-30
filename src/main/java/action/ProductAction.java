@@ -89,55 +89,25 @@ public class ProductAction {
 
         List<ItemType> listTypes=itemTypeService.getAllItemType();
         Items items=itemsService.getItemsByID(id);
+        List<Picdata> pics=picDataService.getPicDataByProductID(id);
+        //System.out.println(pics.size());
         model.addAttribute("items",items);
         model.addAttribute("listTypes",listTypes);
+        model.addAttribute("pics",pics);
         //System.out.println(companyInfo.toString());
         return "itemsEdit";
     }
 
     @RequestMapping("/itemsModify.do")
-    public @ResponseBody
-    Map<String,Object> modifyItemList(@RequestParam(value = "file", required = false)MultipartFile file, Items items, HttpServletRequest request, Model model) throws IOException {
+    public String modifyItemList(Items items, Model model) throws IOException {
 
-        System.out.println(items);
-        int result=0;
+        //System.out.println(items);
         items.setClassName(itemTypeService.getItemTypeByClassType(items.getClassType()).getClassName());
-        if (file!=null) {
-            String path = request.getSession().getServletContext().getRealPath("upload");
-            String fileName = file.getOriginalFilename();
-//        String fileName = new Date().getTime()+".jpg";
-            System.out.println(path);
-            System.out.println(fileName);
-            System.out.println(items.getId());
-            Picdata picdata = new Picdata();
-            picdata.setPicName(fileName);
-            picdata.setPicPath(path);
-            picdata.setProductId(items.getId());
-            System.out.println(picdata);
-            result = picDataService.addPic(picdata);
-
-            File targetFile = new File(path, fileName);
-            if(!targetFile.exists()){
-                targetFile.mkdirs();
-            }
-
-            //保存
-            try {
-                file.transferTo(targetFile);
-
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-                e.printStackTrace();
-            }
-        }
         itemsService.modifyItem(items);
 
-        System.out.println(result);
-        Map<String, Object> map = new HashMap<String, Object>(10);
-        map.put("result",(result==0)?false:true);
 
         //System.out.println(companyInfo.toString());
-        return map;
+        return "redirect:itemlist.do";
     }
 
     @RequestMapping("/itemsDelete.do")
@@ -154,7 +124,7 @@ public class ProductAction {
         ItemType itemType=itemTypeService.getItemTypeByClassType(items.getClassType());
         items.setClassName(itemType.getClassName());
 
-        //System.out.println(items);
+        System.out.println(items);
         itemsService.addItem(items);
         //
         return "redirect:itemlist.do";

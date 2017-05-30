@@ -19,7 +19,7 @@
 <body>
 <div class="container">
     <div class="page-header text-center"><h1>公司维护</h1></div>
-    <form class="form-horizontal" role="form" action="itemsModify.do" method="post" enctype=”multipart/form-data”>
+    <form class="form-horizontal" role="form">
         <div class="form-group">
             <label for="companyName" class="col-sm-2 control-label">公司名字</label>
             <div class="col-sm-10">
@@ -74,8 +74,22 @@
                 <input type="text" class="form-control" name="eMail" id="eMail" placeholder="请输入商品价格" value="${companyInfo.eMail }" readonly>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-default" id="btnClose" type="button" value="关闭本页" onClick="custom_close()" />
+            </div>
+        </div>
     </form>
-</div>
+    <script language="javascript">
+        function custom_close() {
+            if (confirm("您确定要关闭本页吗？")) {
+                window.opener = null;
+                window.open('', '_self');
+                window.close()
+            } else {}
+        }
+    </script>
+    </div>
 
 </body>
 </html>

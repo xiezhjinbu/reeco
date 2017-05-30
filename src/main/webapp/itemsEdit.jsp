@@ -15,6 +15,7 @@
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
 </head>
 <body>
 <div class="container">
@@ -66,34 +67,72 @@
                   </c:forEach>
                 </select>
             </div>
-
-        </div>
-        <div class="form-group">
-            <label for="exampleInputFile" class="col-sm-2 control-label">文件上传</label>
-            <div class="col-sm-10">
-                <input type="file" id="exampleInputFile" name="file">
-            </div>
         </div>
         <input type="hidden" class="form-control" name="id" id="id" value="${items.id }">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" id="btn_items">提交</button>
+                <button type="submit" class="btn btn-default" id="btn_items">提交</button>
+
             </div>
         </div>
     </form>
-    <script>
-        $("#btn_items").click( function() {
-            var hideForm = $('form');
-            var options = {
-                dataType : "json", /*data: {'file': $("input[type=file]").val(), "username": '123', password: "123"},*/
-                beforeSubmit : function() { alert("正在上传"); },
-                success : function(result) { alert('成功上传！'); },
-                error : function(result) { alert('失败上传！');}
-            };
-            hideForm.ajaxSubmit(options);
-        });
-    </script>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>图片名称</th>
+            <th>位置</th>
+            <th>
+                <a class="btn btn-default"href="addPic.do?id=${items.id }">添加图片</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${pics }" var="e" varStatus="s" begin="0" step="1">
+            <tr>
+                <td><h5>${s.index+1 }</h5></td>
+                <td>
+                    <h5>${e.picName }</h5>
+                </td>
+                <td><h5>${e.picPath }</h5></td>
+                <td>
+                    <a class="glyphicon glyphicon-remove" href="picDelete.do?id=${e.id }"></a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            data-whatever="${e.picPath }/${e.picName }">预览
+                    </button>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    <!--模态框-->
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">图片预览</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" align="center">
+                        <img />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
+<script type="text/javascript">
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // 触发事件的按钮
+        var recipient = button.data('whatever') // 解析出data-whatever内容
+        var modal = $(this)
+        modal.find('img').attr("src",recipient)
+    })
+</script>
 </body>
 </html>

@@ -17,23 +17,36 @@
     <script type="text/javascript" src="js/jquery.form.js"></script>
 </head>
 <body>
-<form action="upload.do" method="post" enctype="multipart/form-data">
-    <input type="text" name="password">
-    <input type="text" name="username">
-    <input type="file" name="file" />
-</form>
-<button id="button">提交</button>
-<script>
-        $("#button").click( function() {
-            var hideForm = $('form');
-            var options = {
-                dataType : "json", /*data: {'file': $("input[type=file]").val(), "username": '123', password: "123"},*/
-                beforeSubmit : function() { alert("正在上传"); },
-                success : function(result) { alert('成功上传！'); },
-                error : function(result) { alert('失败上传！');}
-            };
-            hideForm.ajaxSubmit(options);
-        });
-</script>
+<div class="container">
+    <div class="page-header text-center"><h1>商品图片维护</h1></div>
+    <div class="form-horizontal" id="showItem">
+        <div class="form-group">
+            <label for="itemName" class="col-sm-2 control-label">商品编码</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="itemName" name="itemName" type="text" value="${items.itemCode }" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="itemCode" class="col-sm-2 control-label">商品名称</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="itemCode" name="itemCode" type="text" value="${items.itemName }" readonly>
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" action="doPic.do" method="post"  enctype="multipart/form-data">
+        <input type="hidden" name="productId" value="${items.id}" />
+        <div class="form-group">
+            <label for="exampleInputFile" class="col-sm-2 control-label">文件上传</label>
+            <div class="col-sm-10">
+                <input type="file" id="exampleInputFile" name="file">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-default" id="btn_items">提交</input>
+            </div>
+        </div>
+     </form>
+</div>
 </body>
 </html>

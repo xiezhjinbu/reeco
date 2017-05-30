@@ -14,6 +14,20 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#province").change(function(){
+                    $("#province option").each(function(i,o){
+                        if($(this).attr("selected"))
+                        {
+                            $(".city").hide();
+                            $(".city").eq(i).show();
+                        }
+                    });
+                });
+                $("#province").change();
+            });
+    </script>
 </head>
 <body>
 <div class="container">
@@ -58,7 +72,6 @@
                     </c:forEach>
                 </select>
             </div>
-
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
