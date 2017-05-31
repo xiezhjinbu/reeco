@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : pis
-Source Server Version : 50717
+Source Server Version : 50710
 Source Host           : localhost:3306
 Source Database       : wyn
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2017-05-21 16:44:43
+Date: 2017-05-31 11:15:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -95,6 +95,22 @@ CREATE TABLE `picdata` (
 -- ----------------------------
 -- Records of picdata
 -- ----------------------------
+INSERT INTO `picdata` VALUES ('00aeba1d-3f63-11e7-bcc5-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('16f2eddf-3f64-11e7-bcc5-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('2d1c50f6-402d-11e7-b8ce-a0d3c171b144', '1495594843605.jpg', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('2f64d068-404b-11e7-b8ce-a0d3c171b144', 'QQ图片20170421121305.jpg', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('508121e3-402d-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
 INSERT INTO `picdata` VALUES ('73bf4adb-3ded-11e7-9ba7-08edb9d95ef0', '1.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');
 INSERT INTO `picdata` VALUES ('73c156e4-3ded-11e7-9ba7-08edb9d95ef0', '2.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');
 INSERT INTO `picdata` VALUES ('73c2cddf-3ded-11e7-9ba7-08edb9d95ef0', '3.jpg', 'images\\product', '9efc54b8-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('9a85c4d2-404b-11e7-b8ce-a0d3c171b144', 'QQ图片20170421121305.jpg', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('9e8bd498-404b-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140516.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('a16cba86-3f63-11e7-bcc5-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('a1ded109-401d-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', '9eff9f1b-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('a20f5254-404b-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140642.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('a9ebf5d2-402d-11e7-b8ce-a0d3c171b144', 'QQ图片20170116095345.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', '9eff9f1b-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('c30e3557-402e-11e7-b8ce-a0d3c171b144', 'QQ图片20170116095409.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', '9eff9f1b-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('c37e7917-404a-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140516.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('db7ed52d-402c-11e7-b8ce-a0d3c171b144', 'QQ图片20170116095322.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', '9eff9f1b-3c8d-11e7-9988-08edb9d95ef0');
+INSERT INTO `picdata` VALUES ('e5ae1963-3f64-11e7-bcc5-a0d3c171b144', 'QQ图片20170116095345.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);
+INSERT INTO `picdata` VALUES ('ef30ffd0-404a-11e7-b8ce-a0d3c171b144', 'QQ图片20161226140555.png', 'D:\\git\\reeco\\src\\main\\webapp\\upload', null);

@@ -43,13 +43,12 @@ SQL查找具体类型进行显示。水杯类型建一个全局枚举，将名�
 	3.14：商品规格
 	3.17：价格
 
-jdbc_url=jdbc:mysql://192.168.1.91:30156/d5e3120b
-jdbc_user=d6444dbf
-jdbc_password=8d728600
+jdbc_url=jdbc:mysql://10.0.0.24:30054/d82a4816
+jdbc_user=25cdd429
+jdbc_password=6bce50a2
 
 
-
-23e97d36cd916817
+victor83034455
 
 
 jdbc_url=jdbc:mysql://localhost:3306/wyn?useUnicode=true&characterEncoding=utf8
