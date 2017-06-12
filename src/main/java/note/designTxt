@@ -54,3 +54,7 @@ victor83034455
 jdbc_url=jdbc:mysql://localhost:3306/wyn?useUnicode=true&characterEncoding=utf8
 jdbc_user=root
 jdbc_password=dbwork
+
+腾讯云的记录：
+f1g1ns2.dnspod.net
+f1g1ns1.dnspod.net
