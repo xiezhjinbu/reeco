@@ -51,6 +51,9 @@ jdbc_password=6bce50a2
 victor83034455
 
 
+账号：anchora10  密码：Aa1013
+https://beian.aliyun.com/?spm=a3c00.7621338.416540.19.fSDrQC
+
 jdbc_url=jdbc:mysql://localhost:3306/wyn?useUnicode=true&characterEncoding=utf8
 jdbc_user=root
 jdbc_password=dbwork
